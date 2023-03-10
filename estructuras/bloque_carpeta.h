@@ -1,0 +1,14 @@
+//
+// Created by gerson on 24/02/23.
+//
+
+#ifndef MIA_PROYECTO1_202000166__BLOQUE_CARPETA_H
+#define MIA_PROYECTO1_202000166__BLOQUE_CARPETA_H
+
+#include "./content.h"
+typedef struct BLOQUECARPETA
+{
+    CONTENT b_content[4];
+} BLOQUECARPETA;
+
+#endif //MIA_PROYECTO1_202000166__BLOQUE_CARPETA_H
