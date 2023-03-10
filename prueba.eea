@@ -1,0 +1,96 @@
+# comando para correr el script:
+# execute >path=/home/gerson/Documentos/Archivos/MIA_Proyecto1_202000166_/prueba.eea
+
+#Crea un disco de 3000 Kb en la carpeta home
+mkdisk >size=3000 >unit=K >path=/home/gerson/Documentos/Archivos/MIA_Proyecto1_202000166_/discos/Disco1.dsk
+
+#No es necesario utilizar comillas para la ruta en este caso ya que la ruta no tiene ningún espacio en blanco
+mkdisk >path=/home/gerson/Documentos/Archivos/MIA_Proyecto1_202000166_/discos/Disco2.dsk >unit=K >size=3000
+
+#Se ponen comillas la ruta de path ya que uno de sus elementos tiene espacios en blanco, se crea si no está o no existe
+mkdisk >size=5 >unit=M >path="/home/gerson/Documentos/Archivos/MIA_Proyecto1_202000166_/discos/Disco3.dsk"
+
+#Creará un disco de 10 Mb ya que no hay parámetro unit
+mkdisk >size=10 >path="/home/gerson/Documentos/Archivos/MIA_Proyecto1_202000166_/discos/Disco4.dsk"
+
+#Elimina con rmdisk Disco1.dsk
+rmdisk >path=/home/gerson/Documentos/Archivos/MIA_Proyecto1_202000166_/discos/Disco1.dsk
+#Elimina con rmdisk Disco2.dsk
+rmdisk >path=/home/gerson/Documentos/Archivos/MIA_Proyecto1_202000166_/discos/Disco2.dsk >unit=K >size=3000
+
+
+#Crea una partición primaria llamada Particion1 de 300 kb
+#con el peor ajuste en el disco Disco1.dsk
+fdisk >size=300 >path=/home/gerson/Documentos/Archivos/MIA_Proyecto1_202000166_/discos/Disco3.dsk >name=Particion1
+fdisk >size=300 >path=/home/gerson/Documentos/Archivos/MIA_Proyecto1_202000166_/discos/Disco3.dsk >name=Particion6
+
+#Crea una partición extendida dentro de Disco2 de 300 kb
+#Tiene el peor ajuste
+fdisk >type=E >path=/home/gerson/Documentos/Archivos/MIA_Proyecto1_202000166_/discos/Disco3.dsk >unit=K >name=Particion2 >size=300
+
+#Crea una partición lógica con el mejor ajuste, llamada Partición 3,
+#de 1 Mb en el Disco3
+fdisk >size=1 >type=L >unit=k >fit=bf >path="/home/gerson/Documentos/Archivos/MIA_Proyecto1_202000166_/discos/Disco3.dsk" >name="Particion4"
+fdisk >size=1 >type=L >unit=M >fit=bf >path="/home/gerson/Documentos/Archivos/MIA_Proyecto1_202000166_/discos/Disco3.dsk" >name="Particion3"
+fdisk >size=1 >type=L >unit=k >fit=bf >path="/home/gerson/Documentos/Archivos/MIA_Proyecto1_202000166_/discos/Disco3.dsk" >name="Particion5"
+
+#Intenta crear una partición extendida dentro de Disco2 de 200 kb
+#Debería mostrar error ya que ya existe una partición extendida
+#dentro de Disco2
+fdisk >type=E >path=/home/gerson/Documentos/Archivos/MIA_Proyecto1_202000166_/discos/Disco3.dsk >name=Part3 >unit=K >size=200
+
+#Elimina de forma rápida una partición llamada Partición 1
+#fdisk >delete=full >name="Particion1" >path=/home/gerson/Documentos/Archivos/MIA_Proyecto1_202000166_/discos/Disco3.dsk
+
+#Quitan 500 Kb de Partición 4 en Disco4.dsk
+#Ignora los demás parámetros (s)
+#Se toma como válido el primero que aparezca, en este caso add
+fdisk >add=-200 >size=10 >unit=K >path="/home/gerson/Documentos/Archivos/MIA_Proyecto1_202000166_/discos/Disco3.dsk" >name="Particion2"
+
+#Agrega 1 Mb a la partición Partición 4 del Disco4.dsk
+#Se debe validar que haya espacio libre después de la partición
+fdisk >add=1 >unit=M >path="/home/gerson/Documentos/Archivos/MIA_Proyecto1_202000166_/discos/Disco3.dsk" >name="Particion2"
+
+
+#Monta las particiones de Disco1.dsk, Disco2.dsk y Disco3.dsk,
+#Canet Ejemplo -> 201404106
+mount >path=/home/gerson/Documentos/Archivos/MIA_Proyecto1_202000166_/discos/Disco3.dsk >name=Particion1
+mount >path=/home/gerson/Documentos/Archivos/MIA_Proyecto1_202000166_/discos/Disco3.dsk >name=Particion6
+mount >name=Particion3 >path=/home/gerson/Documentos/Archivos/MIA_Proyecto1_202000166_/discos/Disco3.dsk
+mount >path=/home/gerson/Documentos/Archivos/MIA_Proyecto1_202000166_/discos/Disco3.dsk >name=Particion4
+mount >path=/home/gerson/Documentos/Archivos/MIA_Proyecto1_202000166_/discos/Disco3.dsk >name=Particion5
+mount >name=Part3 >path=/home/gerson/Documentos/Archivos/MIA_Proyecto1_202000166_/discos/Disco3.dsk
+mount
+
+#Desmonta la partición con id 061Disco1(En Disco1.dsk)
+unmount >id=663Disco3
+mount
+
+#Realiza un formateo completo de la partición en el id 061Disco1 en ext2
+mkfs >type=full >id=662Disco3
+mkfs >type=full >id=661Disco3 >fs=3fs
+
+#Se loguea en el sistema como usuario root
+login >user=root >pass=123 >id=661Disco3
+#Debe dar error porque ya hay un usuario logueado
+login >user=miusuario >pass=mipwd >id=661Disco3
+
+#Termina la sesión del usuario
+#Logout
+#Si se vuelve a ejecutar deberá mostrar un error ya que no hay sesión actualmente
+#Logout
+
+#Crea el archivo a.txt, Si no existen las carpetas home user o docs se crean
+#El tamaño del archivo es de 15 bytes El contenido sería: 012345678901234
+mkfile >size=15 >path=/home/user/docs/a.txt >r
+#Crea "archivo 1.txt" la carpeta "mis documentos" ya debe existir el tamaño es de 0 bytes
+mkfile >path="/home/mis documentos/archivo 1.txt"
+#Crea el archivo b.txt, El contenido del archivo será el mismo que el archivo b.txt que se encuentra en el disco duro de la computadora.
+mkfile >path=/home/user/docs/b.txt >r >cont=/home/Documents/b.txt
+
+#Crea la carpeta usac
+#Si no existen las carpetas home user o docs se crean
+mkdir >r >path=/home/user/docs/usac
+#Crea la carpeta "archivos diciembre"
+#La carpeta padre ya debe existir
+mkdir >path="/home/mis documentos/archivos diciembre"
