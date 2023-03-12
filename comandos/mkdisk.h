@@ -7,18 +7,13 @@
 
 #include <iostream>
 #include <string>
-#include <cstring>
-#include <cstdio>
-#include <ctime>
-#include <dirent.h>
-#include <cstdlib>
-#include "../estructuras/mbr.h"
-#include "../analizador/utilidades.h"
-
 using namespace std;
 void analisisMkdisk(char []);
+string charToString(char* a);
 string nombrePath(char path[]);
-string pathName(char path[]);
+bool validacionSize(char valor[]);
+string pathSName(char path[]);
+bool validacionPath(string path);
 bool validacionName(char name[]);
 bool validacionUnit(char _unit);
 void crearDiscos(char path[],char name[],char size[],char _unit);

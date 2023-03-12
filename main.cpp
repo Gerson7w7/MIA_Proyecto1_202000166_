@@ -8,20 +8,24 @@ int main() {
     char comando [100]="";
 
     while(!salir){
-        cout << "===============================================" <<endl;
-        cout << "||                 PROYECTO 1                ||" <<endl;
-        cout << "||   MANEJO E IMPLEMENTACION DE ARCHIVOS     ||" <<endl;
-        cout << "|| GERSON RUBEN QUIROA DEL CID - 202000166   ||" <<endl;
-        cout << "||            PRIMER SEMESTRE 2023           ||" <<endl;
-        cout << "===============================================" <<endl;
-        cout << "comando~> ";
+        cout << "╔═══════════════════════════════════════════╗"<<endl;
+        cout << "║                 PROYECTO 1                ║"<<endl;
+        cout << "║ MANEJO E IMPLEMENTACION DE ARCHIVOS       ║"<<endl;
+        cout << "║ GERSON RUBEN QUIROA DEL CID 202000166     ║"<<endl;
+        cout << "║ SEGUNDO SEMESTRE 2022                     ║"<<endl;
+        cout << "╚═══════════════════════════════════════════╝"<<endl;
+        cout << "COMANDO >> ";
 
         cin.getline(comando,100);
 
-        if (strcmp(comando,"exit") == 0){
+        if (strcmp(comando,"salir")==0){
             salir = true;
         }else{
-            analizador(comando);
+            if (strcmp(comando,"")!=0){
+                analizadorGeneral(comando);
+            }else{
+                cout << "Error -> Comando vacio"<<endl;
+            }
         }
 
     }

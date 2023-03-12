@@ -10,21 +10,16 @@
 #include <dirent.h>
 #include <string>
 #include <fstream>
-#include "../comandos/mount.h"
-#include "../analizador/utilidades.h"
 #include "../estructuras/bloque_archivo.h"
-#include "../estructuras/mbr.h"
-#include "../estructuras/super_bloque.h"
-#include "../estructuras/apuntador.h"
-#include "../estructuras/journaling.h"
 #include "../estructuras/inodos.h"
 #include "../estructuras/bloque_carpeta.h"
+#include "../estructuras/apuntador.h"
 
 using namespace std;
-
 void analisisRep(char []);//analisis de rep
 bool validacionDirectorioReporte(char _direc[]);//valido si existe directorio
 bool validacionReporte(char _path[]);//valido si exite un reporte con nombre similar.
+string charToStringR(char* a);//para retornoar char
 void repTree(char _id[], char _name[], char _path[],char _dir[]);
 bool validacionDot(string _path);
 string InodoTabla(int indice,INODOS * inode,int tree);

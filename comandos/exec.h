@@ -6,12 +6,8 @@
 #define MIA_PROYECTO1_202000166__EXEC_H
 
 #include <iostream>
-#include <string>
-#include <cstdio>
-#include <cstring>
-#include "../analizador/leerArchivo.h"
 
 using namespace std;
-void fexec(char []);
+void analisisExec(char []);
 
 #endif //MIA_PROYECTO1_202000166__EXEC_H

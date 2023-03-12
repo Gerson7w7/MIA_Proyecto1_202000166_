@@ -43,6 +43,7 @@ typedef struct DISCO
     char letra;
     char path[100];
     int numeral;
+    int formato;
 } DISCO;
 
 #endif //MIA_PROYECTO1_202000166__DISK_H

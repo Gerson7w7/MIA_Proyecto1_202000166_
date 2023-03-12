@@ -2,340 +2,352 @@
 // Created by gerson on 16/02/23.
 //
 #include "mkdisk.h"
-
+#include <iostream>
+#include <string>
+#include <cstring>
+#include <cstdio>
+#include <ctime>
+#include <dirent.h>
+#include <cstdlib>
+#include "../estructuras/mbr.h"
 using namespace std;
-
-/* mkdisk >s=3000 >u=K >path=/home/user/Disco1.dsk
- * >s=tamaño del disco (positivo)
- * >u=unidad de tamaño (K, M)
- * >path=ruta donde se guardará el disco duro
- * >fit=ajust de particiones (BF, FF, WF) */
-string pathName(char path[])
-{
-    int numDiagonales = 0; // numero de diagonales
-    int contadorFind = 0;
-    int i = 0;
-    char name[100] = "";
-    // contamos cuantas diagonales hay en el path
-    while (path[i] != NULL)
-    {
-        if (path[i] == '/')
-        {
-            numDiagonales++;
-        }
-        i++;
-    }
-    i = 0; // se reincia contador
-    while (path[i] != NULL)
-    {
-        if (path[i] == '/')
-        {
-            contadorFind++;
-        }
-        if (numDiagonales != contadorFind)
-        {
-
-            char aux[1] = "";
-            aux[0] = path[i];
-            strncat(name, aux, 1);
-        }
-        i++;
-    }
-    return charToString(name);
+//para convertir array de char a string
+string charToString(char* a){
+    string  s = a;
+    return s;
 }
 
-string nombrePath(char path[])
-{
-    int numDiagonales = 0; // numero de diagonales
-    int contadorFind = 0;
-    int contador = 0;
-    char nuevoPath[100] = "";
-    char valor_name[16] = "";
-    // contamos cuantas diagonales hay en el path
-    while (path[contador] != NULL)
-    {
-        if (path[contador] == '/')
-        {
-            numDiagonales++;
+/*mkdisk >size=3000 >unit=K >path=/home/user/Disco1.dsk
+ * >size=unidad positivo
+ * >u=K y M,
+ * >path=/home/user/Disco1.dsk
+ * */
+string pathSName(char path[]){
+    int contadorDia=0;//me obtiene cuantas diagonales Hay
+    int contadorFind=0;
+    int contador=0;
+    char pathsiName[100]="";
+    while(path[contador]!=NULL){
+        if(path[contador]=='/'){
+            contadorDia++;
+        }
+        contador++;
+    }//aqui cuento cuatas DIAGONALES HAY
+    contador=0;//se reincia contador
+    while(path[contador]!=NULL){
+        if(path[contador]=='/'){
+            contadorFind++;
+        }
+        if(contadorDia!=contadorFind){
+
+            char aux[1]="";
+            aux[0]=path[contador];
+            strncat(pathsiName,aux,1);
         }
         contador++;
     }
-    contador = 0;
-    while (path[contador] != NULL)
-    { // recorre todo el path como por ejemplo: /home/gerson/Escritorio/disco1.dsk
+    string newname = charToString(pathsiName);
+    return newname;
+}
 
-        if (path[contador] == '/')
-        {
+string nombrePath(char path[]){
+    int contadorDia=0;//me obtiene cuantas diagonales Hay
+    int contadorFind=0;
+    int contador=0;
+    char nuevoPath[100]="";
+    char nombre[7]="Copia_";
+    char valor_name[16]="";
+
+    while(path[contador]!=NULL){
+        if(path[contador]=='/'){
+            contadorDia++;
+        }
+        contador++;
+    }//aqui cuento cuatas DIAGONALES HAY
+    contador=0;
+    while(path[contador]!=NULL){//recorre todo el contador ejemplo /home/gerson/Escritorio/disco1.dsk
+        if(path[contador]=='/'){
             contadorFind++;
         }
-        if (numDiagonales == contadorFind)
-        {
-            if (path[contador] != '/')
-            {
-                char aux[1] = "";
-                aux[0] = path[contador];
-                strncat(valor_name, aux, 1);
+        if(contadorDia==contadorFind){
+            //strncat(nuevoPath,nombre,7);
+            if(path[contador]!='/'){
+                char aux[1]="";
+                aux[0]=path[contador];
+                strncat(valor_name,aux,1);
             }
         }
         contador++;
-    }
-    return charToString(valor_name);
+    }//******************************************************************************
+    string newname = charToString(valor_name);
+    return newname;
 }
 
-// validar si el nombre tiene la extencion .dsk
-bool validacionName(char name[])
-{
-    int punto;
-    for (int i = 0; i < 20; ++i)
-    {
-        if (name[i] != NULL)
-        {
-            if (!isalnum(name[i]) && name[i] != '.' && name[i] != '_')
-            {
-                // no es un nombre válido
-                return false;
-            }
-            if (name[i] == '.')
-            {
-                punto = i;
-                break;
-            }
-        }
+//para validar el path:
+bool validacionPath(string path){
+    DIR *directorio;//puntero de un directorio
+    if(directorio = opendir(path.c_str())){
+        closedir(directorio);
+        cout << "Directorio si Existe: "<<endl;
+        return true;
+    }else{
+        closedir(directorio);
+        cout << "Directorio NO Existe: "<<endl;
+        return false;
     }
 
-    // validacion de la extension
-    if (name[punto + 1] == 'd' && name[punto + 2] == 's' && name[punto + 3] == 'k')
-    {
+}
+
+//para validar el size
+bool validacionSize(char valor[]){
+    string size_string = charToString(valor);
+    int size = stoi(size_string);
+    if (size>0){
+        cout << "Validacion size OK "<<endl;
         return true;
     }
-    else
-    {
+    cout << "warrin Validacion Size "<<endl;
+    return false;
+
+}
+//validar si el nombre tiene la extenciondsk
+bool validacionName(char name[]){
+    int ct;
+    cout<< name<<endl;
+    for (int i = 0; i < 20; ++i) {
+        if(name[i]!=NULL){
+            if (!isalnum(name[i]) && name[i]!='.' && name[i]!='_'){
+                return false;
+            }
+            if(name[i]=='.'){
+                ct=i;
+            }
+        }
+    }
+    //validacion extension
+    if(name[ct+1]=='d'){
+        if (name[ct+2]=='s'){
+            if (name[ct+3]=='k'){
+                cout << "Extension si valida "<<endl;
+                return true;
+            }else{
+                return false;
+            }
+        }else{
+            return false;
+        }
+    }else{
         return false;
     }
 }
 
-bool validacionUnit(char _unit)
-{
-    if (_unit == 'k')
-    {
+bool validacionUnit(char _unit){
+    if(_unit=='k'){
+
+        //cout << "U Valida"<<endl;
         return true;
-    }
-    else if (_unit == 'm')
-    {
+    }else if(_unit=='m'){
+        //cout << "U Valida"<<endl;
         return true;
+        //add_valor = stoi(s_add)*1024;
     }
-    // unidad no válida
+    //cout << "U invalida"<<endl;
     return false;
 }
 
-// función para crear el archivo que simulará el disco.
-void crearDiscos(char path[], char name[], char size[], char _unit)
-{
-    MBR *mbr = (MBR *)malloc(sizeof(MBR));
-    string sizeSTR = charToString(size);
-    string pathSTR = charToString(path);
-    string nameSTR = charToString(name);
-    string path_disco = pathSTR + nameSTR;
-    int _size = stoi(sizeSTR);
-    // tamaño del disco en bytes
-    if (_unit == 'k')
-    {
-        _size = _size * 1024;
+void crearDiscos(char path[],char name[],char size[],char _unit){
+    MBR* mbr = (MBR*) malloc(sizeof (MBR));
+    string s_size = charToString(size);
+    string s_path = charToString(path);
+    string s_name = charToString(name);
+    string path_disco = s_path+s_name;
+    int _size = stoi(s_size);
+    int size_bytes;
+    //**********************************
+    if(_unit=='k'){
+        size_bytes = _size*1024;
+    }else if(_unit=='m'){
+        size_bytes = _size*1024*1024;
     }
-    else if (_unit == 'm')
-    {
-        _size = _size * 1024 * 1024;
-    }
+    cout<<"EL tamaño asignado del Disco es: "<<size_bytes<<endl;
+    //se inicializa el mbr
+    int start = (int)sizeof(MBR);
+    mbr->mbr_dsk_signature = rand()%100; //se asigna el signature con un random
+    mbr->mbr_tamano = size_bytes;//se asigna en tamaño en bytes
+    time_t tiempoactual;
+    tiempoactual = time(NULL);
+    mbr->mbr_fecha_creacion = tiempoactual;//se asigna el timepo de creacion
 
-    // se inicializa el mbr
-    // int start = (int)sizeof(MBR);
-
-    mbr->mbr_dsk_signature = rand() % 100;  // se asigna el signature con un random
-    mbr->mbr_tamano = _size;                // se asigna en tamaño en bytes
-    time_t fecha;
-    fecha = time(NULL);
-    mbr->mbr_fecha_creacion = fecha; // se asigna el timpo de creacion
-
-    // se inicializa las particiones
-    for (int i = 0; i < 4; ++i)
-    {
+    //se inicializa las particiones
+    for (int i = 0; i < 4; ++i) {
         mbr->mbr_particion[i].part_status = '0';
         mbr->mbr_particion[i].part_type = '-';
         mbr->mbr_particion[i].part_start = 0;
         mbr->mbr_particion[i].part_s = 0;
     }
 
-    // se escribe el mbr en el disco
-    FILE *file;                              // se crea el file para escribir en ello
-    file = fopen(path_disco.c_str(), "wb+"); // en modo escribir binario
+    //se escribe el disco
+    FILE *file; //se crea el file para escribir en ello
+    file = fopen(path_disco.c_str(),"w+b");// en modo escribir binario
 
-    fseek(file, 0, SEEK_SET);
-    for (int i = 0; i < _size; ++i)
-    {
-        fwrite("0", 1, 1, file);
+    fseek(file,0,SEEK_SET);
+    for (int i = 0; i < size_bytes; ++i) {
+        fwrite("0",1,1,file);
     }
-    fseek(file, 0, SEEK_SET);          // se posiciona al principio del disco
-    fwrite(mbr, sizeof(MBR), 1, file); // se escribe el mbr
+    fseek(file,0,SEEK_SET);//se posiciona al principio del disco
+    fwrite(mbr,sizeof (MBR),1,file);// se escribe el mbr
 
     fclose(file);
-    cout << "sistema~> El disco creado con exito! :D" << endl;
+    cout << "Aviso -> El disco se creo exitosamente "<<endl;
 }
 
-void analisisMkdisk(char comando[])
-{
-    cout << "sistema~> Creando disco..." << endl;
-    cout << "sistema~> Verificando parametros... " << endl;
-    int contador = 0;
-    char lineacomando[200] = "";
+void analisisMkdisk(char comando[]){
+    int contador=0;
+    char lineacomando[200]="";
+    char valor_size[20]="";
+    char valor_unit='m';
+    char valor_path[100]="";
+    char valor_path2[100]="";
+    char valor_name[16]="";//Este valor se obtiene del Path
+    //argumentos opcionales
+    bool flag_size = false;
+    bool flag_unidad=false;
+    bool flag_path=false;
+    bool flag_name=false;
 
-    char _size[20] = "";
-    char _unit = 'm';
-    char _pathCompleto[100] = "";
-    char _onlyPath[100] = "";
-    char _name[16] = ""; // Este valor se obtiene del Path
-
-    // argumentos opcionales
-    bool gotSize = false;
-    bool gotUnidad = false;
-    bool gotPath = false;
-    bool gotName = false;
-
-    while (comando[contador] != NULL)
-    {
-        if (comando[contador] == ' ')
-        {
+    while(comando[contador]!=NULL){
+        if(comando[contador]==' '){
             contador++;
-            memset(lineacomando, 0, 200);
-        }
-        else
-        {
-            char aux[1] = "";
-            aux[0] = tolower(comando[contador]);
-            strncat(lineacomando, aux, 1);
+            memset(lineacomando,0,200);
+        } else {
+            char aux[1]="";
+            aux[0]= tolower(comando[contador]);
+            strncat(lineacomando,aux,1);
             contador++;
         }
-
-        // validacion claves y valores
-        if (strcmp(lineacomando, "mkdisk") == 0)
-        {
-            memset(lineacomando, 0, 200);
+        //validacion argumentos y valores
+        if(strcmp(lineacomando,"mkdisk")==0){
+            cout << "Encontro: "<<lineacomando<<endl;
+            memset(lineacomando,0,200);
             contador++;
-        }
-        else if (strcmp(lineacomando, ">size=") == 0)
-        {
-            memset(lineacomando, 0, 200);
+        }else if (strcmp(lineacomando,">size=")==0){
+            cout << "Argumento: "<<lineacomando<<endl;
+            memset(lineacomando,0,200);
 
-            while (comando[contador] != NULL)
-            {
-                if (comando[contador] == ' ' || comando[contador] == '\n')
-                {
+            while(comando[contador]!=NULL){
+                if(comando[contador]==' ' || comando[contador]=='\n'){
                     contador++;
                     break;
-                }
-                else
-                {   // aquí obtenemos el size del disco
-                    char aux[1] = "";
-                    aux[0] = comando[contador];
-                    strncat(_size, aux, 1);
+                }else{
+                    char aux[1]="";
+                    aux[0]=comando[contador];
+                    strncat(valor_size,aux,1);
                     contador++;
                 }
             }
-            cout << "sistema~> El disco tendrá un tamanio de: " << _size << endl;
-        }
-        else if (strcmp(lineacomando, ">path=") == 0)
-        {
-            memset(lineacomando, 0, 200);
-            while (comando[contador] != NULL)
-            {
-                if (comando[contador] == '"')
-                {   // cuando viene con comillas el path
+            cout << "Valor: "<<valor_size<<endl;
+        }else if (strcmp(lineacomando,">path=")==0){
+            cout << "Argumento: "<<lineacomando<<endl;
+            memset(lineacomando,0,200);
+
+            while(comando[contador]!=NULL){
+                if(comando[contador]=='"'){//cuando viene con comillas el path
                     contador++;
-                    while (comando[contador] != NULL)
-                    {
-                        if (comando[contador] == '"')
-                        {
+                    while(comando[contador]!=NULL){
+                        if(comando[contador]=='"'){
                             contador++;
                             break;
-                        }
-                        else
-                        {
-                            char aux[1] = "";
-                            aux[0] = comando[contador];
-                            strncat(_pathCompleto, aux, 1);
+                        }else{
+                            char aux[1]="";
+                            aux[0]= comando[contador];
+                            strncat(valor_path,aux,1);
                             contador++;
                         }
                     }
-                }
-                else
-                {   // si el path no lleva comillas
-                    if (comando[contador] == ' ' || comando[contador] == '\n')
-                    {
+                }else{
+                    if(comando[contador]==' ' || comando[contador]=='\n'){
                         contador++;
                         break;
-                    }
-                    else
-                    {
-                        char aux[1] = "";
-                        aux[0] = comando[contador];
-                        strncat(_pathCompleto, aux, 1);
+
+                    }else{
+                        char aux[1]="";
+                        aux[0]= comando[contador];
+                        strncat(valor_path,aux,1);
                         contador++;
                     }
                 }
+
             }
-            // aqui se obtiene el nombre del disco
-            string nombreConst = nombrePath(_pathCompleto);
-            strcpy(_name, nombreConst.c_str());
-            cout << "sistema~> Nombre del disco a crear: " << _name << endl;
+            cout << "Valor: "<<valor_path<<endl;
+            //aqui se obtiene el nombre
+            string pathcopia = nombrePath(valor_path);
 
-            // path sin cnombre:
-            string _onlyPathConst = pathName(_pathCompleto);
-            strcpy(_onlyPath, _onlyPathConst.c_str());
-            cout << "sistema~> Directorio a crear el disco: " << _onlyPath << endl;
-        }
-        else if (strcmp(lineacomando, ">unit=") == 0)
-        {
-            gotUnidad = true;
-            memset(lineacomando, 0, 200);
-            _unit = tolower(comando[contador]);
+            strcpy(valor_name,pathcopia.c_str());
+            cout << "EL nombre encontrado: "<<valor_name<<endl;
+
+            //path sin cnombre:
+            string pathcopia2 = pathSName(valor_path);
+            strcpy(valor_path2,pathcopia2.c_str());
+            cout << "EL path sin name es: "<<valor_path2<<endl;
+
+        }else if(strcmp(lineacomando,">unit=")==0){
+            cout << "Argumento: "<<lineacomando<<endl;
+            flag_unidad = true;
+            memset(lineacomando,0,200);
+            valor_unit = tolower(comando[contador]);
             contador++;
-            cout << "sistema~> unidad de bytes del disco: " << _unit << endl;
+            cout << "Valor: "<<valor_unit<<endl;
         }
     }
 
-    string pathSTR = charToString(_onlyPath); // valido si existe el directorio
-    gotPath = validacionPath(pathSTR);        // continuasion de lo de arriba
-    gotSize = validacionSize(_size);
-    gotName = validacionName(_name);
-    gotUnidad = validacionUnit(_unit);
-    // para agregar la barra del directorio sin el nombre
+    //>>>>>>>>>>>>>>>>>>Validaciones para crear el disco<<<<<<<<<<<<<<<<<<<<<<<<<<<
+    string path = charToString(valor_path2);//valido si existe el directorio
+    flag_path = validacionPath(path);//continuasion de lo de arriba
+
+    flag_size = validacionSize(valor_size);
+    flag_name = validacionName(valor_name);
+    flag_unidad= validacionUnit(valor_unit);
+
+    //para agregar la la barra
     char barra[1];
-    strcpy(barra, "/");
-    strncat(_onlyPath, barra, 1);
-    // primero verificamos si existe el directorio
-    if (!gotPath)
-    {   // si no existe el directorio lo creamos
-        cout << "sistema~> Directorio que ingreso no existe, creando directorio..." << endl;
-        cout << "sistema~> Se creo directorio con exito :D" << endl;
-        // Como no existe el directorio se procede a crear
-        string dir = "mkdir -p \"" + pathSTR + "\"";
+    strcpy(barra,"/");
+    strncat(valor_path2,barra,1);
+    if (flag_path){//existe directorio
+        if(flag_unidad){
+            if (flag_size){// si el size es mayoy a cero y es multiplo de 8
+                if (flag_name){// si el name es válido en nombre y extension
+                    // se procede a crear diso
+                    crearDiscos(valor_path,valor_name,valor_size,valor_unit);
+                    cout << "el disco cumple con los parametros solicitados: "<<endl;
+                }else{
+                    cout << "Error -> Extencion no válido "<<endl;
+                }
+            }else{
+                cout << "Error -> Size no válido"<<endl;
+            }
+        }else{
+            cout << "Error -> unit no válido"<<endl;
+        }
+    }else{//no existe directorio
+        cout << "Alerta -> Directorio no existe"<<endl;
+        cout << "Aviso -> Se creo directorio"<<endl;
+        //Como no existe el directorio se procede a crear
+        string dir = "mkdir -p \""+path+"\"";
         system(dir.c_str());
+        if(flag_unidad){
+            if (flag_size){// si el size es mayor a cero y es multiplo de 8
+                if (flag_name){// si el name es válido en nombre y extension
+                    // se procede a crear diso
+                    crearDiscos(valor_path,valor_name,valor_size,valor_unit);
+                    cout << "Se crea disco en nuevo directorio"<<endl;
+                }else{
+                    cout << "Error -> Name no válido "<<endl;
+                }
+            }else{
+                cout << "Error -> Size no válido"<<endl;
+            }
+        }else{
+            cout << "Error -> unit no válido"<<endl;
+        }
     }
-    // ahora verificamos los parametros obligatorios
-    if (!gotUnidad)
-    {
-        cout << "Error~> Unidad no valido." << endl;
-        return;
-    }
-    else if (!gotSize)
-    {
-        cout << "Error~> Tamanio no valido o no encontrado" << endl;
-        return;
-    }
-    else if (!gotName)
-    {
-        cout << "Error~> La extension del disco no es es esperado, verifique se trate de un .dsk" << endl;
-        return;
-    }
-    // comenzamos a crear el disco
-    crearDiscos(_pathCompleto, _name, _size, _unit);
 }

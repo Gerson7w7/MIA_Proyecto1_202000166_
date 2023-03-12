@@ -94,3 +94,20 @@ mkdir >r >path=/home/user/docs/usac
 #Crea la carpeta "archivos diciembre"
 #La carpeta padre ya debe existir
 mkdir >path="/home/mis documentos/archivos diciembre"
+
+# reportes
+rep >id=661Disco3 >path=/home/gerson/Documentos/Archivos/MIA_Proyecto1_202000166_/reportes/reporte1.jpg >name=mbr
+rep >id=661Disco3 >path=/home/gerson/Documentos/Archivos/MIA_Proyecto1_202000166_/reportes/reporte2.pdf >name=disk
+
+rep >id=661Disco3 >path=/home/gerson/Documentos/Archivos/MIA_Proyecto1_202000166_/reportes/reporte3.jpg >name=inode
+rep >id=661Disco3 >path=/home/gerson/Documentos/Archivos/MIA_Proyecto1_202000166_/reportes/reporte4.jpg >name=journaling
+
+rep >id=661Disco3 >path=/home/gerson/Documentos/Archivos/MIA_Proyecto1_202000166_/reportes/reporte5.jpg >name=block
+rep >id=661Disco3 >path=/home/gerson/Documentos/Archivos/MIA_Proyecto1_202000166_/reportes/reporte6.txt >name=bm_inode
+rep >id=661Disco3 >path=/home/gerson/Documentos/Archivos/MIA_Proyecto1_202000166_/reportes/reporte11.txt >name=bm_block
+
+rep >id=661Disco3 >path=/home/gerson/Documentos/Archivos/MIA_Proyecto1_202000166_/reportes/reporte7.jpg >name=tree
+rep >id=661Disco3 >path=/home/gerson/Documentos/Archivos/MIA_Proyecto1_202000166_/reportes/reporte8.jpg >name=sb
+
+rep >id=661Disco3 >path=/home/gerson/Documentos/Archivos/MIA_Proyecto1_202000166_/reportes/reporte9.txt >name=file
+rep >id=661Disco3 >path=/home/gerson/Documentos/Archivos/MIA_Proyecto1_202000166_/reportes/reporte10.jpg >name=ls
