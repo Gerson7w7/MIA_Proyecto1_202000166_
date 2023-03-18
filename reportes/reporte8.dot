@@ -1,0 +1,35 @@
+digraph {
+rankdir=LR;
+Super0 [
+shape=plaintext
+label=<
+<table border='0' cellborder='1' color='goldenrod1' cellspacing='0'>
+<tr><td PORT = "I0" >SUPERBLOQUE</td></tr>
+	<tr><td cellpadding='4'>
+<table color='dodgerblue' cellspacing='0'>
+<tr><td>Nombre</td><td>Valor</td></tr>
+<tr><td>s_inodes_count</td><td>410</td></tr>
+<tr><td>s_block_count</td><td>1230</td></tr>
+<tr><td>s_free_blocks_count</td><td>1229</td></tr>
+<tr><td>s_free_inodes_count</td><td>409</td></tr>
+<tr><td>s_mtime</td><td>Fri Mar 17 17:08:19 2023
+</td></tr>
+<tr><td>s_umtime</td><td>Wed Dec 31 18:00:00 1969
+</td></tr>
+<tr><td>s_mnt_count</td><td> 1 </td></tr>
+<tr><td>s_magic</td><td >0xEF53</td></tr>
+<tr><td>s_inodes_size</td><td> 112 </td></tr>
+<tr><td>s_block_size</td><td> 64 </td></tr>
+<tr><td>s_first_ino</td><td> 2 </td></tr>
+<tr><td>s_first_blo</td><td> 2 </td></tr>
+<tr><td>s_bm_inode_start</td><td> 180634 </td></tr>
+<tr><td>s_bm_block_start</td><td> 181045 </td></tr>
+<tr><td>s_inode_start</td><td> 182276 </td></tr>
+<tr><td>s_block_start</td><td> 228197 </td></tr>
+</table>
+</td>
+</tr>
+<tr><td> Particion1     /home/gerson/Documentos/Archivos/MIA_Proyecto1_202000166_/discos/Disco3.dsk  </td></tr>
+</table>
+>];
+}

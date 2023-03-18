@@ -1,0 +1,297 @@
+digraph {
+Inodo0 [
+shape=plaintext
+label=<
+<table border='0' cellborder='1' color='green' cellspacing='0'>
+	<tr><td PORT = "I0" >INODO0</td></tr>
+	<tr><td cellpadding='4'>
+		<table color='cyan4' cellspacing='0'>
+			<tr><td>Nombre</td><td>Valor</td></tr>
+			<tr><td>i_uidt</td><td>1</td></tr>
+			<tr><td>i_gid</td><td>1</td></tr>
+			<tr><td>i_size</td><td>45920</td></tr>
+			<tr><td>i_atime</td><td> Fri Mar 17 17:08:19 2023
+ </td></tr>
+			<tr><td>i_ctime</td><td> Fri Mar 17 17:08:19 2023
+ </td></tr>
+			<tr><td>i_mtime</td><td> Fri Mar 17 17:08:19 2023
+ </td></tr>
+			<tr><td>i_block0</td><td PORT = "B0">0</td></tr>
+			<tr><td>i_block1</td><td >-1</td></tr>
+			<tr><td>i_block2</td><td >-1</td></tr>
+			<tr><td>i_block3</td><td >-1</td></tr>
+			<tr><td>i_block4</td><td >-1</td></tr>
+			<tr><td>i_block5</td><td >-1</td></tr>
+			<tr><td>i_block6</td><td >-1</td></tr>
+			<tr><td>i_block7</td><td >-1</td></tr>
+			<tr><td>i_block8</td><td >-1</td></tr>
+			<tr><td>i_block9</td><td >-1</td></tr>
+			<tr><td>i_block10</td><td >-1</td></tr>
+			<tr><td>i_block11</td><td >-1</td></tr>
+			<tr><td>i_block12</td><td >-1</td></tr>
+			<tr><td>i_block13</td><td >-1</td></tr>
+			<tr><td>i_block14</td><td >-1</td></tr>
+			<tr><td>i_type</td><td>0</td></tr>
+			<tr><td>i_perm</td><td>Si</td></tr>
+		</table>
+	</td>
+	</tr>
+	<tr><td>Inodo</td></tr>
+</table>
+ >];
+
+
+Inodo1 [
+shape=plaintext
+label=<
+<table border='0' cellborder='1' color='green' cellspacing='0'>
+	<tr><td PORT = "I1" >INODO1</td></tr>
+	<tr><td cellpadding='4'>
+		<table color='cyan4' cellspacing='0'>
+			<tr><td>Nombre</td><td>Valor</td></tr>
+			<tr><td>i_uidt</td><td>1</td></tr>
+			<tr><td>i_gid</td><td>1</td></tr>
+			<tr><td>i_size</td><td>0</td></tr>
+			<tr><td>i_atime</td><td> Fri Mar 17 17:08:19 2023
+ </td></tr>
+			<tr><td>i_ctime</td><td> Fri Mar 17 17:08:19 2023
+ </td></tr>
+			<tr><td>i_mtime</td><td> Fri Mar 17 17:08:19 2023
+ </td></tr>
+			<tr><td>i_block0</td><td PORT = "B0">1</td></tr>
+			<tr><td>i_block1</td><td >-1</td></tr>
+			<tr><td>i_block2</td><td >-1</td></tr>
+			<tr><td>i_block3</td><td >-1</td></tr>
+			<tr><td>i_block4</td><td >-1</td></tr>
+			<tr><td>i_block5</td><td >-1</td></tr>
+			<tr><td>i_block6</td><td >-1</td></tr>
+			<tr><td>i_block7</td><td >-1</td></tr>
+			<tr><td>i_block8</td><td >-1</td></tr>
+			<tr><td>i_block9</td><td >-1</td></tr>
+			<tr><td>i_block10</td><td >-1</td></tr>
+			<tr><td>i_block11</td><td >-1</td></tr>
+			<tr><td>i_block12</td><td >-1</td></tr>
+			<tr><td>i_block13</td><td >-1</td></tr>
+			<tr><td>i_block14</td><td >-1</td></tr>
+			<tr><td>i_type</td><td>0</td></tr>
+			<tr><td>i_perm</td><td>Si</td></tr>
+		</table>
+	</td>
+	</tr>
+	<tr><td>Inodo</td></tr>
+</table>
+ >];
+
+
+Inodo2 [
+shape=plaintext
+label=<
+<table border='0' cellborder='1' color='green' cellspacing='0'>
+	<tr><td PORT = "I2" >INODO2</td></tr>
+	<tr><td cellpadding='4'>
+		<table color='cyan4' cellspacing='0'>
+			<tr><td>Nombre</td><td>Valor</td></tr>
+			<tr><td>i_uidt</td><td>1</td></tr>
+			<tr><td>i_gid</td><td>1</td></tr>
+			<tr><td>i_size</td><td>0</td></tr>
+			<tr><td>i_atime</td><td> Fri Mar 17 17:08:19 2023
+ </td></tr>
+			<tr><td>i_ctime</td><td> Fri Mar 17 17:08:19 2023
+ </td></tr>
+			<tr><td>i_mtime</td><td> Fri Mar 17 17:08:19 2023
+ </td></tr>
+			<tr><td>i_block0</td><td PORT = "B0">2</td></tr>
+			<tr><td>i_block1</td><td >-1</td></tr>
+			<tr><td>i_block2</td><td >-1</td></tr>
+			<tr><td>i_block3</td><td >-1</td></tr>
+			<tr><td>i_block4</td><td >-1</td></tr>
+			<tr><td>i_block5</td><td >-1</td></tr>
+			<tr><td>i_block6</td><td >-1</td></tr>
+			<tr><td>i_block7</td><td >-1</td></tr>
+			<tr><td>i_block8</td><td >-1</td></tr>
+			<tr><td>i_block9</td><td >-1</td></tr>
+			<tr><td>i_block10</td><td >-1</td></tr>
+			<tr><td>i_block11</td><td >-1</td></tr>
+			<tr><td>i_block12</td><td >-1</td></tr>
+			<tr><td>i_block13</td><td >-1</td></tr>
+			<tr><td>i_block14</td><td >-1</td></tr>
+			<tr><td>i_type</td><td>0</td></tr>
+			<tr><td>i_perm</td><td>Si</td></tr>
+		</table>
+	</td>
+	</tr>
+	<tr><td>Inodo</td></tr>
+</table>
+ >];
+
+
+Inodo3 [
+shape=plaintext
+label=<
+<table border='0' cellborder='1' color='green' cellspacing='0'>
+	<tr><td PORT = "I3" >INODO3</td></tr>
+	<tr><td cellpadding='4'>
+		<table color='cyan4' cellspacing='0'>
+			<tr><td>Nombre</td><td>Valor</td></tr>
+			<tr><td>i_uidt</td><td>1</td></tr>
+			<tr><td>i_gid</td><td>1</td></tr>
+			<tr><td>i_size</td><td>0</td></tr>
+			<tr><td>i_atime</td><td> Fri Mar 17 17:08:19 2023
+ </td></tr>
+			<tr><td>i_ctime</td><td> Fri Mar 17 17:08:19 2023
+ </td></tr>
+			<tr><td>i_mtime</td><td> Fri Mar 17 17:08:19 2023
+ </td></tr>
+			<tr><td>i_block0</td><td PORT = "B0">3</td></tr>
+			<tr><td>i_block1</td><td >-1</td></tr>
+			<tr><td>i_block2</td><td >-1</td></tr>
+			<tr><td>i_block3</td><td >-1</td></tr>
+			<tr><td>i_block4</td><td >-1</td></tr>
+			<tr><td>i_block5</td><td >-1</td></tr>
+			<tr><td>i_block6</td><td >-1</td></tr>
+			<tr><td>i_block7</td><td >-1</td></tr>
+			<tr><td>i_block8</td><td >-1</td></tr>
+			<tr><td>i_block9</td><td >-1</td></tr>
+			<tr><td>i_block10</td><td >-1</td></tr>
+			<tr><td>i_block11</td><td >-1</td></tr>
+			<tr><td>i_block12</td><td >-1</td></tr>
+			<tr><td>i_block13</td><td >-1</td></tr>
+			<tr><td>i_block14</td><td >-1</td></tr>
+			<tr><td>i_type</td><td>0</td></tr>
+			<tr><td>i_perm</td><td>Si</td></tr>
+		</table>
+	</td>
+	</tr>
+	<tr><td>Inodo</td></tr>
+</table>
+ >];
+
+
+Inodo4 [
+shape=plaintext
+label=<
+<table border='0' cellborder='1' color='green' cellspacing='0'>
+	<tr><td PORT = "I4" >INODO4</td></tr>
+	<tr><td cellpadding='4'>
+		<table color='cyan4' cellspacing='0'>
+			<tr><td>Nombre</td><td>Valor</td></tr>
+			<tr><td>i_uidt</td><td>1</td></tr>
+			<tr><td>i_gid</td><td>1</td></tr>
+			<tr><td>i_size</td><td>0</td></tr>
+			<tr><td>i_atime</td><td> Fri Mar 17 17:08:19 2023
+ </td></tr>
+			<tr><td>i_ctime</td><td> Fri Mar 17 17:08:19 2023
+ </td></tr>
+			<tr><td>i_mtime</td><td> Fri Mar 17 17:08:19 2023
+ </td></tr>
+			<tr><td>i_block0</td><td PORT = "B0">4</td></tr>
+			<tr><td>i_block1</td><td >-1</td></tr>
+			<tr><td>i_block2</td><td >-1</td></tr>
+			<tr><td>i_block3</td><td >-1</td></tr>
+			<tr><td>i_block4</td><td >-1</td></tr>
+			<tr><td>i_block5</td><td >-1</td></tr>
+			<tr><td>i_block6</td><td >-1</td></tr>
+			<tr><td>i_block7</td><td >-1</td></tr>
+			<tr><td>i_block8</td><td >-1</td></tr>
+			<tr><td>i_block9</td><td >-1</td></tr>
+			<tr><td>i_block10</td><td >-1</td></tr>
+			<tr><td>i_block11</td><td >-1</td></tr>
+			<tr><td>i_block12</td><td >-1</td></tr>
+			<tr><td>i_block13</td><td >-1</td></tr>
+			<tr><td>i_block14</td><td >-1</td></tr>
+			<tr><td>i_type</td><td>0</td></tr>
+			<tr><td>i_perm</td><td>Si</td></tr>
+		</table>
+	</td>
+	</tr>
+	<tr><td>Inodo</td></tr>
+</table>
+ >];
+
+
+Inodo5 [
+shape=plaintext
+label=<
+<table border='0' cellborder='1' color='green' cellspacing='0'>
+	<tr><td PORT = "I5" >INODO5</td></tr>
+	<tr><td cellpadding='4'>
+		<table color='cyan4' cellspacing='0'>
+			<tr><td>Nombre</td><td>Valor</td></tr>
+			<tr><td>i_uidt</td><td>1</td></tr>
+			<tr><td>i_gid</td><td>1</td></tr>
+			<tr><td>i_size</td><td>0</td></tr>
+			<tr><td>i_atime</td><td> Fri Mar 17 17:08:19 2023
+ </td></tr>
+			<tr><td>i_ctime</td><td> Fri Mar 17 17:08:19 2023
+ </td></tr>
+			<tr><td>i_mtime</td><td> Fri Mar 17 17:08:19 2023
+ </td></tr>
+			<tr><td>i_block0</td><td PORT = "B0">5</td></tr>
+			<tr><td>i_block1</td><td >-1</td></tr>
+			<tr><td>i_block2</td><td >-1</td></tr>
+			<tr><td>i_block3</td><td >-1</td></tr>
+			<tr><td>i_block4</td><td >-1</td></tr>
+			<tr><td>i_block5</td><td >-1</td></tr>
+			<tr><td>i_block6</td><td >-1</td></tr>
+			<tr><td>i_block7</td><td >-1</td></tr>
+			<tr><td>i_block8</td><td >-1</td></tr>
+			<tr><td>i_block9</td><td >-1</td></tr>
+			<tr><td>i_block10</td><td >-1</td></tr>
+			<tr><td>i_block11</td><td >-1</td></tr>
+			<tr><td>i_block12</td><td >-1</td></tr>
+			<tr><td>i_block13</td><td >-1</td></tr>
+			<tr><td>i_block14</td><td >-1</td></tr>
+			<tr><td>i_type</td><td>0</td></tr>
+			<tr><td>i_perm</td><td>Si</td></tr>
+		</table>
+	</td>
+	</tr>
+	<tr><td>Inodo</td></tr>
+</table>
+ >];
+
+
+Inodo6 [
+shape=plaintext
+label=<
+<table border='0' cellborder='1' color='green' cellspacing='0'>
+	<tr><td PORT = "I6" >INODO6</td></tr>
+	<tr><td cellpadding='4'>
+		<table color='cyan4' cellspacing='0'>
+			<tr><td>Nombre</td><td>Valor</td></tr>
+			<tr><td>i_uidt</td><td>1</td></tr>
+			<tr><td>i_gid</td><td>1</td></tr>
+			<tr><td>i_size</td><td>0</td></tr>
+			<tr><td>i_atime</td><td> Fri Mar 17 17:08:19 2023
+ </td></tr>
+			<tr><td>i_ctime</td><td> Fri Mar 17 17:08:19 2023
+ </td></tr>
+			<tr><td>i_mtime</td><td> Fri Mar 17 17:08:19 2023
+ </td></tr>
+			<tr><td>i_block0</td><td PORT = "B0">6</td></tr>
+			<tr><td>i_block1</td><td >-1</td></tr>
+			<tr><td>i_block2</td><td >-1</td></tr>
+			<tr><td>i_block3</td><td >-1</td></tr>
+			<tr><td>i_block4</td><td >-1</td></tr>
+			<tr><td>i_block5</td><td >-1</td></tr>
+			<tr><td>i_block6</td><td >-1</td></tr>
+			<tr><td>i_block7</td><td >-1</td></tr>
+			<tr><td>i_block8</td><td >-1</td></tr>
+			<tr><td>i_block9</td><td >-1</td></tr>
+			<tr><td>i_block10</td><td >-1</td></tr>
+			<tr><td>i_block11</td><td >-1</td></tr>
+			<tr><td>i_block12</td><td >-1</td></tr>
+			<tr><td>i_block13</td><td >-1</td></tr>
+			<tr><td>i_block14</td><td >-1</td></tr>
+			<tr><td>i_type</td><td>0</td></tr>
+			<tr><td>i_perm</td><td>Si</td></tr>
+		</table>
+	</td>
+	</tr>
+	<tr><td>Inodo</td></tr>
+</table>
+ >];
+
+
+}
+

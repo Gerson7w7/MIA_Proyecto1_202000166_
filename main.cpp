@@ -12,7 +12,7 @@ int main() {
         cout << "║                 PROYECTO 1                ║"<<endl;
         cout << "║ MANEJO E IMPLEMENTACION DE ARCHIVOS       ║"<<endl;
         cout << "║ GERSON RUBEN QUIROA DEL CID 202000166     ║"<<endl;
-        cout << "║ SEGUNDO SEMESTRE 2022                     ║"<<endl;
+        cout << "║ PRIMER SEMESTRE 2023                      ║"<<endl;
         cout << "╚═══════════════════════════════════════════╝"<<endl;
         cout << "COMANDO >> ";
 

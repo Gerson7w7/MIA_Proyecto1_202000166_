@@ -1,0 +1,19 @@
+digraph J {
+TableJour [
+shape=plaintext
+color=forestgreen
+label=<
+<table border='1' cellborder='1' >
+<tr><td>JOURNALING </td></tr>
+<tr><td>Journal_tipo_operacion</td><td>Creacion</td></tr>
+<tr><td>Journal_tipo</td><td> 1 </td></tr>
+<tr><td>Journal_nombre</td><td>directorio</td></tr>
+<tr><td>Journal_contenido</td><td>ruta</td></tr>
+<tr><td>Journal_fecha</td><td>Fri Mar 17 17:08:19 2023
+</td></tr>
+<tr><td>Journal_propietario</td><td>root</td></tr>
+<tr><td>Journal_Permisos</td><td>777</td></tr>
+<tr><td>Particion1      /home/gerson/Documentos/Archivos/MIA_Proyecto1_202000166_/discos/Disco3.dsk </td></tr>
+</table>
+>];
+}

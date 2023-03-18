@@ -1,0 +1,42 @@
+digraph G{
+tbl [
+shape=plaintext
+label=<
+<table border='2' cellborder='0' color='blue' cellspacing='1'>
+<tr>
+<td colspan='1' rowspan='1'>
+<table color='orange' border='1' cellborder='1' cellpadding='10' cellspacing='0'>
+<tr><td>MBR</td></tr>
+</table>
+</td>
+<td colspan='1' rowspan='1'>
+<table color='orange' border='1' cellborder='1' cellpadding='10' cellspacing='0'>
+<tr><td>Primaria <br/>Nombre:Particion1<br/> Formato: full <br/>5.859375 % del disco</td></tr>
+</table>
+</td>
+<td colspan='1' rowspan='1'>
+<table color='orange' border='1' cellborder='1' cellpadding='10' cellspacing='0'>
+<tr><td>Primaria <br/>Nombre:Particion6<br/> Formato:  <br/>5.859375 % del disco</td></tr>
+</table>
+</td>
+<td colspan='1' rowspan='1'>
+<table color='red' border='1' cellborder='1' cellpadding='10' cellspacing='0'>
+<tr>
+<td>Libre</td>
+</tr>
+</table>
+</td>
+<td colspan='1' rowspan='1'>
+<table color='orange' border='1' cellborder='1' cellpadding='10' cellspacing='0'>
+<tr><td>Libre</td></tr>
+</table>
+</td>
+<td colspan='1' rowspan='1'>
+<table color='orange' border='1' cellborder='1' cellpadding='10' cellspacing='0'>
+<tr><td> Porcentaje Libre del disco: 88.2812 % </td></tr>
+</table>
+</td>
+</tr>
+</table>
+>];
+}

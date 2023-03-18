@@ -1,0 +1,130 @@
+digraph {
+rankdir=LR;
+Bloque0 [
+shape=plaintext
+label=<
+<table border='0' cellborder='1' color='yellow' cellspacing='0'>
+	<tr><td PORT ="BL0">Bloque de Carpeta</td></tr>
+	<tr><td cellpadding='4'>
+		<table color='gray' cellspacing='0'>
+			<tr><td>B_NAME</td><td>B_INODO</td></tr>
+			<tr><td>.</td><td >0</td></tr>
+			<tr><td>..</td><td >0</td></tr>
+			<tr><td>home</td><td PORT = "B2">1</td></tr>
+			<tr><td></td><td >-1</td></tr>
+		</table>
+</td>
+</tr>
+	<tr><td>CARPETA</td></tr>
+</table>
+ >];
+Bloque1 [
+shape=plaintext
+label=<
+<table border='0' cellborder='1' color='yellow' cellspacing='0'>
+	<tr><td PORT ="BL1">Bloque de Carpeta</td></tr>
+	<tr><td cellpadding='4'>
+		<table color='gray' cellspacing='0'>
+			<tr><td>B_NAME</td><td>B_INODO</td></tr>
+			<tr><td>.</td><td PORT = "B0">1</td></tr>
+			<tr><td>..</td><td >0</td></tr>
+			<tr><td>user</td><td PORT = "B2">2</td></tr>
+			<tr><td>mis document</td><td PORT = "B3">5</td></tr>
+		</table>
+</td>
+</tr>
+	<tr><td>CARPETA</td></tr>
+</table>
+ >];
+Bloque2 [
+shape=plaintext
+label=<
+<table border='0' cellborder='1' color='yellow' cellspacing='0'>
+	<tr><td PORT ="BL2">Bloque de Carpeta</td></tr>
+	<tr><td cellpadding='4'>
+		<table color='gray' cellspacing='0'>
+			<tr><td>B_NAME</td><td>B_INODO</td></tr>
+			<tr><td>.</td><td PORT = "B0">2</td></tr>
+			<tr><td>..</td><td PORT = "B1">1</td></tr>
+			<tr><td>docs</td><td PORT = "B2">3</td></tr>
+			<tr><td>-</td><td >-1</td></tr>
+		</table>
+</td>
+</tr>
+	<tr><td>CARPETA</td></tr>
+</table>
+ >];
+Bloque3 [
+shape=plaintext
+label=<
+<table border='0' cellborder='1' color='yellow' cellspacing='0'>
+	<tr><td PORT ="BL3">Bloque de Carpeta</td></tr>
+	<tr><td cellpadding='4'>
+		<table color='gray' cellspacing='0'>
+			<tr><td>B_NAME</td><td>B_INODO</td></tr>
+			<tr><td>.</td><td PORT = "B0">3</td></tr>
+			<tr><td>..</td><td PORT = "B1">2</td></tr>
+			<tr><td>usac</td><td PORT = "B2">4</td></tr>
+			<tr><td>-</td><td >-1</td></tr>
+		</table>
+</td>
+</tr>
+	<tr><td>CARPETA</td></tr>
+</table>
+ >];
+Bloque4 [
+shape=plaintext
+label=<
+<table border='0' cellborder='1' color='yellow' cellspacing='0'>
+	<tr><td PORT ="BL4">Bloque de Carpeta</td></tr>
+	<tr><td cellpadding='4'>
+		<table color='gray' cellspacing='0'>
+			<tr><td>B_NAME</td><td>B_INODO</td></tr>
+			<tr><td>.</td><td PORT = "B0">4</td></tr>
+			<tr><td>..</td><td PORT = "B1">3</td></tr>
+			<tr><td>-</td><td >-1</td></tr>
+			<tr><td>-</td><td >-1</td></tr>
+		</table>
+</td>
+</tr>
+	<tr><td>CARPETA</td></tr>
+</table>
+ >];
+Bloque5 [
+shape=plaintext
+label=<
+<table border='0' cellborder='1' color='yellow' cellspacing='0'>
+	<tr><td PORT ="BL5">Bloque de Carpeta</td></tr>
+	<tr><td cellpadding='4'>
+		<table color='gray' cellspacing='0'>
+			<tr><td>B_NAME</td><td>B_INODO</td></tr>
+			<tr><td>.</td><td PORT = "B0">5</td></tr>
+			<tr><td>..</td><td PORT = "B1">1</td></tr>
+			<tr><td>archivos dic</td><td PORT = "B2">6</td></tr>
+			<tr><td>re</td><td >-1</td></tr>
+		</table>
+</td>
+</tr>
+	<tr><td>CARPETA</td></tr>
+</table>
+ >];
+Bloque6 [
+shape=plaintext
+label=<
+<table border='0' cellborder='1' color='yellow' cellspacing='0'>
+	<tr><td PORT ="BL6">Bloque de Carpeta</td></tr>
+	<tr><td cellpadding='4'>
+		<table color='gray' cellspacing='0'>
+			<tr><td>B_NAME</td><td>B_INODO</td></tr>
+			<tr><td>.</td><td PORT = "B0">6</td></tr>
+			<tr><td>..</td><td PORT = "B1">5</td></tr>
+			<tr><td>-</td><td >-1</td></tr>
+			<tr><td>-</td><td >-1</td></tr>
+		</table>
+</td>
+</tr>
+	<tr><td>CARPETA</td></tr>
+</table>
+ >];
+}
+
